@@ -1,0 +1,27 @@
+<mvc:View
+  controllerName="contact_app.view.ContactItem"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:control="control"
+  xmlns:h="http://www.w3.org/1999/xhtml">
+  <Page
+    id="page"
+    title="{name/last}, {name/first}"
+    showNavButton="{device>/isPhone}"
+    navButtonPress="handleNavButtonPress" >
+    <headerContent>
+    </headerContent>
+    <footer>
+      <Toolbar>
+        <ToolbarSpacer/>
+      </Toolbar>
+    </footer>
+    <content>
+     <Text
+        text="{about}"
+        class="about-text" >
+      </Text>
+    </content>
+  </Page>
+</mvc:View>

@@ -1,0 +1,53 @@
+<mvc:View controllerName="contact_app.view.Contact"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:control="control"
+  xmlns:h="http://www.w3.org/1999/xhtml">
+  <Page
+    id="page"
+    title="Users"
+    showFooter="{device>/isNoPhone}" >
+    <headerContent>
+      <Button
+        icon="sap-icon://customer"
+        enabled="false">
+      </Button>
+    </headerContent>
+    <footer>
+      <Toolbar>
+      </Toolbar>
+    </footer>
+    <content>
+      <List
+        id="contactList"
+        mode="{device>/listMode}"
+        select="handleContactListSelect"
+        noDataText="{i18n>CATEGORY_NO_DATA}"
+        busyIndicatorDelay="0"
+        items="{/items}">
+        <items>
+          <ObjectListItem
+            type="{device>/listItemType}"
+            title="{name/last}, {name/first}"
+            number="{index}"
+            press="handleContactListItemPress"
+            iconDensityAware="false" >
+            <ObjectAttribute text="{
+              path: 'address',
+              formatter : '.formatter.address'
+              }"/>
+            <ObjectAttribute text="{phone}"/>
+             <firstStatus>
+              <ObjectStatus
+                text="{
+                  path : 'isActive',
+                  formatter : '.formatter.status'
+                }" />
+            </firstStatus>
+          </ObjectListItem>
+        </items>
+      </List>
+    </content>
+  </Page>
+</mvc:View>
